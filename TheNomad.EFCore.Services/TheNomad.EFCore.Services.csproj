@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TheNomad.EFCore.Data\TheNomad.EFCore.Data.csproj" />
+    <ProjectReference Include="..\TheNomad.EFCore.Utils\TheNomad.EFCore.Utils.csproj" />
+  </ItemGroup>
+
+</Project>
