@@ -1,4 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using TheNomad.EFCore.Data;
 using TheNomad.EFCore.Data.Entities;
@@ -71,6 +75,48 @@ namespace TheNomad.EFCore.Services.QueryObjects
                     i.Title,
                     AuthorsString = string.Join(", ", i.AuthorsLink.OrderBy(j => j.Order).Select(j => j.Author.Name))
                 }).First();
+
+            return book;
+        }
+
+        public void CreateBookOneAuthor()
+        {
+            var oneBook = CreateDummyBookOneAuthor();
+            _context.Add(oneBook);
+            _context.SaveChanges();
+
+            var book = new Book
+            {
+                Title = "Test Book",
+                PublishedOn = DateTime.Today
+            };
+            book.AuthorsLink = new List<BookAuthor>
+            {
+                new BookAuthor
+                {
+                    Book = book,
+                    Author = oneBook.AuthorsLink.First().Author
+                }
+            };
+            _context.Add(book);
+            _context.SaveChanges();
+        }
+
+        public static Book CreateDummyBookOneAuthor()
+        {
+            var book = new Book
+            {
+                Title = "Book Title",
+                Description = "Book Description",
+                Price = 123,
+                PublishedOn = new DateTime(2010, 1, 1)
+            };
+
+            var author = new Author { Name = "Test Author" };
+            book.AuthorsLink = new List<BookAuthor>
+            {
+                new BookAuthor {Book = book, Author = author},
+            };
 
             return book;
         }

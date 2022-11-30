@@ -4,14 +4,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using System.IO;
-using System.Reflection;
-using System;
-using Swashbuckle.AspNetCore.SwaggerUI;
 using System.Collections.Generic;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using Microsoft.EntityFrameworkCore;
 using TheNomad.EFCore.Data;
+using TheNomad.EFCore.Api.Services;
+using TheNomad.EFCore.Services.DatabaseServices.Concrete;
 
 namespace TheNomad.EFCore.Api
 {
@@ -29,9 +26,15 @@ namespace TheNomad.EFCore.Api
         {
             services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddMvc();
-            services.AddDbContext<AppDbContext>(options => options.UseNpgsql(
-                @"Server=localhost; port=5432; user id=postgres; password=pdMsWFjZ; database=EF; pooling=true;SearchPath=public",
-                b => b.MigrationsAssembly("TheNomad.EFCore.Data")));
+            services.AddHttpContextAccessor();
+            services.AddSingleton(new AppInformation());
+
+            var connection = Configuration.GetConnectionString("DefaultConnection");
+            if (Configuration["ENVIRONMENT"] == "Development")
+            {
+                connection = connection.FormDatabaseConnection();
+            }
+            services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connection, b => b.MigrationsAssembly("TheNomad.EFCore.Data")));
 
             services.AddSwaggerGen(options =>
             {

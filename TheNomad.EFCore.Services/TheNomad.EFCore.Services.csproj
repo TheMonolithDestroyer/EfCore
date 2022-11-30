@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\TheNomad.EFCore.Data\TheNomad.EFCore.Data.csproj" />
     <ProjectReference Include="..\TheNomad.EFCore.Utils\TheNomad.EFCore.Utils.csproj" />
   </ItemGroup>

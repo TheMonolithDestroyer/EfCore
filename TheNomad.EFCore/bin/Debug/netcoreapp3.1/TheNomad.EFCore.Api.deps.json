@@ -708,6 +708,7 @@
       },
       "TheNomad.EFCore.Services/1.0.0": {
         "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
           "TheNomad.EFCore.Data": "1.0.0",
           "TheNomad.EFCore.Utils": "1.0.0"
         },

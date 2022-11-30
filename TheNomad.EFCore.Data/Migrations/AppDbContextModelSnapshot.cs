@@ -19,7 +19,7 @@ namespace TheNomad.EFCore.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.6")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-            modelBuilder.Entity("TheNomad.EFCore.Entity.Author", b =>
+            modelBuilder.Entity("TheNomad.EFCore.Data.Entities.Author", b =>
                 {
                     b.Property<int>("AuthorId")
                         .ValueGeneratedOnAdd()
@@ -34,7 +34,7 @@ namespace TheNomad.EFCore.Data.Migrations
                     b.ToTable("Authors");
                 });
 
-            modelBuilder.Entity("TheNomad.EFCore.Entity.Book", b =>
+            modelBuilder.Entity("TheNomad.EFCore.Data.Entities.Book", b =>
                 {
                     b.Property<int>("BookId")
                         .ValueGeneratedOnAdd()
@@ -67,7 +67,7 @@ namespace TheNomad.EFCore.Data.Migrations
                     b.ToTable("Books");
                 });
 
-            modelBuilder.Entity("TheNomad.EFCore.Entity.BookAuthor", b =>
+            modelBuilder.Entity("TheNomad.EFCore.Data.Entities.BookAuthor", b =>
                 {
                     b.Property<int>("BookId")
                         .HasColumnType("integer");
@@ -85,7 +85,7 @@ namespace TheNomad.EFCore.Data.Migrations
                     b.ToTable("BookAuthor");
                 });
 
-            modelBuilder.Entity("TheNomad.EFCore.Entity.PriceOffer", b =>
+            modelBuilder.Entity("TheNomad.EFCore.Data.Entities.PriceOffer", b =>
                 {
                     b.Property<int>("PriceOfferId")
                         .ValueGeneratedOnAdd()
@@ -109,7 +109,7 @@ namespace TheNomad.EFCore.Data.Migrations
                     b.ToTable("PriceOffers");
                 });
 
-            modelBuilder.Entity("TheNomad.EFCore.Entity.Review", b =>
+            modelBuilder.Entity("TheNomad.EFCore.Data.Entities.Review", b =>
                 {
                     b.Property<int>("ReviewId")
                         .ValueGeneratedOnAdd()
@@ -135,15 +135,15 @@ namespace TheNomad.EFCore.Data.Migrations
                     b.ToTable("Review");
                 });
 
-            modelBuilder.Entity("TheNomad.EFCore.Entity.BookAuthor", b =>
+            modelBuilder.Entity("TheNomad.EFCore.Data.Entities.BookAuthor", b =>
                 {
-                    b.HasOne("TheNomad.EFCore.Entity.Author", "Author")
+                    b.HasOne("TheNomad.EFCore.Data.Entities.Author", "Author")
                         .WithMany("BooksLink")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TheNomad.EFCore.Entity.Book", "Book")
+                    b.HasOne("TheNomad.EFCore.Data.Entities.Book", "Book")
                         .WithMany("AuthorsLink")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -154,30 +154,30 @@ namespace TheNomad.EFCore.Data.Migrations
                     b.Navigation("Book");
                 });
 
-            modelBuilder.Entity("TheNomad.EFCore.Entity.PriceOffer", b =>
+            modelBuilder.Entity("TheNomad.EFCore.Data.Entities.PriceOffer", b =>
                 {
-                    b.HasOne("TheNomad.EFCore.Entity.Book", null)
+                    b.HasOne("TheNomad.EFCore.Data.Entities.Book", null)
                         .WithOne("Promotion")
-                        .HasForeignKey("TheNomad.EFCore.Entity.PriceOffer", "BookId")
+                        .HasForeignKey("TheNomad.EFCore.Data.Entities.PriceOffer", "BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TheNomad.EFCore.Entity.Review", b =>
+            modelBuilder.Entity("TheNomad.EFCore.Data.Entities.Review", b =>
                 {
-                    b.HasOne("TheNomad.EFCore.Entity.Book", null)
+                    b.HasOne("TheNomad.EFCore.Data.Entities.Book", null)
                         .WithMany("Reviews")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TheNomad.EFCore.Entity.Author", b =>
+            modelBuilder.Entity("TheNomad.EFCore.Data.Entities.Author", b =>
                 {
                     b.Navigation("BooksLink");
                 });
 
-            modelBuilder.Entity("TheNomad.EFCore.Entity.Book", b =>
+            modelBuilder.Entity("TheNomad.EFCore.Data.Entities.Book", b =>
                 {
                     b.Navigation("AuthorsLink");
 

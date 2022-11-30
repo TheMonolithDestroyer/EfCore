@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TheNomad.EFCore.Data;
@@ -63,6 +64,22 @@ namespace TheNomad.EFCore.Api.Controllers
         {
             var service = new ListBooksService(_context);
             return service.SortFilterPage(options).ToList();
+        }
+
+        [HttpPost]
+        public IActionResult CreateBookOneAuthor()
+        {
+            try
+            {
+                var service = new BookService(_context);
+                service.CreateBookOneAuthor();
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

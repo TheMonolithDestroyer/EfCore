@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace TheNomad.EFCore.Data.Entities
 {
     public class Author                          //#E
     {
+        [Key]
         public int AuthorId { get; set; }
         public string Name { get; set; }
 

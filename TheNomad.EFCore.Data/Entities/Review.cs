@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace TheNomad.EFCore.Data.Entities
 {
     public class Review                      //#L
     {
+        [Key]
         public int ReviewId { get; set; }
         public string VoterName { get; set; }
         public int NumStars { get; set; }

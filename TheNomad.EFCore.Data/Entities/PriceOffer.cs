@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace TheNomad.EFCore.Data.Entities
 {
     public class PriceOffer                        //#A
     {
+        [Key]
         public int PriceOfferId { get; set; }
         public decimal NewPrice { get; set; }
         public string PromotionalText { get; set; }
