@@ -17,7 +17,7 @@ namespace TheNomad.EFCore.Data
         {
             var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
             optionsBuilder.UseNpgsql(
-                @"Server=localhost; port=5432; user id=postgres; password=pdMsWFjZ; database=EFCore; pooling=true;SearchPath=public", 
+                @"Server=localhost; port=5432; user id=postgres; password=pdMsWFjZ; database=EF; pooling=true;SearchPath=public", 
                 b => b.MigrationsAssembly("TheNomad.EFCore.Data"));
 
             return new AppDbContext(optionsBuilder.Options);

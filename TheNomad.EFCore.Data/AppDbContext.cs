@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TheNomad.EFCore.Entity;
+using TheNomad.EFCore.Data.Entities;
 
 namespace TheNomad.EFCore.Data
 {
@@ -9,7 +9,9 @@ namespace TheNomad.EFCore.Data
         public DbSet<Author> Authors { get; set; }        
         public DbSet<PriceOffer> PriceOffers { get; set; }
 
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+        public AppDbContext(DbContextOptions<AppDbContext> options) 
+            : base(options) 
+        { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {  

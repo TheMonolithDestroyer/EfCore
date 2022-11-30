@@ -8,8 +8,4 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.6" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\TheNomad.EFCore.Entity\TheNomad.EFCore.Entity.csproj" />
-  </ItemGroup>
-
 </Project>

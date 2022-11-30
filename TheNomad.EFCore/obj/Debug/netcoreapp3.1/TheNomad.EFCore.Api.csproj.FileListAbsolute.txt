@@ -26,11 +26,9 @@ C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\bin\Debug
 C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\bin\Debug\netcoreapp3.1\TheNomad.EFCore.Data.dll
-C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\bin\Debug\netcoreapp3.1\TheNomad.EFCore.Entity.dll
 C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\bin\Debug\netcoreapp3.1\TheNomad.EFCore.Services.dll
 C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\bin\Debug\netcoreapp3.1\TheNomad.EFCore.Services.pdb
 C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\bin\Debug\netcoreapp3.1\TheNomad.EFCore.Data.pdb
-C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\bin\Debug\netcoreapp3.1\TheNomad.EFCore.Entity.pdb
 C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\obj\Debug\netcoreapp3.1\TheNomad.EFCore.Api.csproj.AssemblyReference.cache
 C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\obj\Debug\netcoreapp3.1\TheNomad.EFCore.Api.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\obj\Debug\netcoreapp3.1\TheNomad.EFCore.Api.AssemblyInfoInputs.cache
@@ -50,3 +48,7 @@ C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\bin\Debug
 C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\bin\Debug\netcoreapp3.1\TheNomad.EFCore.Utils.dll
 C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\bin\Debug\netcoreapp3.1\TheNomad.EFCore.Utils.pdb
 C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\obj\Debug\netcoreapp3.1\TheNomad.EFCore.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

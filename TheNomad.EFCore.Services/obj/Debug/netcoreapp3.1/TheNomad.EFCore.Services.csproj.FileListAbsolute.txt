@@ -2,9 +2,7 @@ C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore.Services\
 C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore.Services\bin\Debug\netcoreapp3.1\TheNomad.EFCore.Services.dll
 C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore.Services\bin\Debug\netcoreapp3.1\TheNomad.EFCore.Services.pdb
 C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore.Services\bin\Debug\netcoreapp3.1\TheNomad.EFCore.Data.dll
-C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore.Services\bin\Debug\netcoreapp3.1\TheNomad.EFCore.Entity.dll
 C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore.Services\bin\Debug\netcoreapp3.1\TheNomad.EFCore.Data.pdb
-C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore.Services\bin\Debug\netcoreapp3.1\TheNomad.EFCore.Entity.pdb
 C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore.Services\obj\Debug\netcoreapp3.1\TheNomad.EFCore.Services.csproj.AssemblyReference.cache
 C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore.Services\obj\Debug\netcoreapp3.1\TheNomad.EFCore.Services.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\khozhakeldiyev_n\source\repos\TheNomad.EFCore\TheNomad.EFCore.Services\obj\Debug\netcoreapp3.1\TheNomad.EFCore.Services.AssemblyInfoInputs.cache

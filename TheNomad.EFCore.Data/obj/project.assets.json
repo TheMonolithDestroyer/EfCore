@@ -290,29 +290,6 @@
             "related": ".xml"
           }
         }
-      },
-      "TheNomad.EFCore.Entity/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "TheNomad.EFCore.Utils": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/TheNomad.EFCore.Entity.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/TheNomad.EFCore.Entity.dll": {}
-        }
-      },
-      "TheNomad.EFCore.Utils/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "compile": {
-          "bin/placeholder/TheNomad.EFCore.Utils.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/TheNomad.EFCore.Utils.dll": {}
-        }
       }
     }
   },
@@ -764,22 +741,11 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
-    },
-    "TheNomad.EFCore.Entity/1.0.0": {
-      "type": "project",
-      "path": "../TheNomad.EFCore.Entity/TheNomad.EFCore.Entity.csproj",
-      "msbuildProject": "../TheNomad.EFCore.Entity/TheNomad.EFCore.Entity.csproj"
-    },
-    "TheNomad.EFCore.Utils/1.0.0": {
-      "type": "project",
-      "path": "../TheNomad.EFCore.Utils/TheNomad.EFCore.Utils.csproj",
-      "msbuildProject": "../TheNomad.EFCore.Utils/TheNomad.EFCore.Utils.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Npgsql.EntityFrameworkCore.PostgreSQL >= 5.0.6",
-      "TheNomad.EFCore.Entity >= 1.0.0"
+      "Npgsql.EntityFrameworkCore.PostgreSQL >= 5.0.6"
     ]
   },
   "packageFolders": {
@@ -808,11 +774,7 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {
-            "C:\\Users\\khozhakeldiyev_n\\source\\repos\\TheNomad.EFCore\\TheNomad.EFCore.Entity\\TheNomad.EFCore.Entity.csproj": {
-              "projectPath": "C:\\Users\\khozhakeldiyev_n\\source\\repos\\TheNomad.EFCore\\TheNomad.EFCore.Entity\\TheNomad.EFCore.Entity.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

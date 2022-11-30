@@ -27,10 +27,10 @@ namespace TheNomad.EFCore.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddMvc();
             services.AddDbContext<AppDbContext>(options => options.UseNpgsql(
-                @"Server=localhost; port=5432; user id=postgres; password=pdMsWFjZ; database=EFCore; pooling=true;SearchPath=public",
+                @"Server=localhost; port=5432; user id=postgres; password=pdMsWFjZ; database=EF; pooling=true;SearchPath=public",
                 b => b.MigrationsAssembly("TheNomad.EFCore.Data")));
 
             services.AddSwaggerGen(options =>
@@ -66,8 +66,6 @@ namespace TheNomad.EFCore.Api
             { 
                 c.SwaggerEndpoint("../swagger/v1/swagger.json", "V1"); 
             });
-
-            app.UseHttpsRedirection();
 
             app.UseRouting();
 

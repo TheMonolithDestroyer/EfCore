@@ -8,8 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "TheNomad.EFCore.Data/1.0.0": {
         "dependencies": {
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "5.0.6",
-          "TheNomad.EFCore.Entity": "1.0.0"
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "5.0.6"
         },
         "runtime": {
           "TheNomad.EFCore.Data.dll": {}
@@ -202,20 +201,7 @@
           }
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.6.0": {},
-      "TheNomad.EFCore.Entity/1.0.0": {
-        "dependencies": {
-          "TheNomad.EFCore.Utils": "1.0.0"
-        },
-        "runtime": {
-          "TheNomad.EFCore.Entity.dll": {}
-        }
-      },
-      "TheNomad.EFCore.Utils/1.0.0": {
-        "runtime": {
-          "TheNomad.EFCore.Utils.dll": {}
-        }
-      }
+      "System.Runtime.CompilerServices.Unsafe/4.6.0": {}
     }
   },
   "libraries": {
@@ -356,16 +342,6 @@
       "sha512": "sha512-HxozeSlipUK7dAroTYwIcGwKDeOVpQnJlpVaOkBz7CM4TsE5b/tKlQBZecTjh6FzcSbxndYaxxpsBMz+wMJeyw==",
       "path": "system.runtime.compilerservices.unsafe/4.6.0",
       "hashPath": "system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
-    },
-    "TheNomad.EFCore.Entity/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "TheNomad.EFCore.Utils/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     }
   }
 }
