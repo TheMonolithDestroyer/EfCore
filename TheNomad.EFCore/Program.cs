@@ -2,34 +2,42 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using Serilog;
 using System;
+using System.IO;
 
 namespace TheNomad.EFCore.Api
 {
     public class Program
     {
+        public static IConfiguration Configuration { get; } = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory()) 
+            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+            .AddJsonFile($"appsettings.Development.json", optional: true, reloadOnChange: true)
+            .AddEnvironmentVariables()
+            .Build();
+
         public static void Main(string[] args)
         {
-            var host = CreateWebHostBuilder(args).Build();
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.Console()
+                .CreateLogger();
 
-            //Log.Logger = new LoggerConfiguration()
-            //                .ReadFrom.Configuration(Configuration)
-            //                .Enrich.FromLogContext()
-            //                .CreateLogger();
-
-            host.Run();
+            using var app =
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webHostBuilder
+                    => webHostBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                            _ = config.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
+                                .AddJsonFile("appsettings.json", false, true))
+                        .UseStartup<Startup>())
+                .UseSerilog(
+                    (hostingContext, loggerConfig) =>
+                        loggerConfig
+                            .ReadFrom.Configuration(Configuration)
+                            .Enrich.FromLogContext(),
+                    writeToProviders: false)
+                .Build();
+            app.Run();
         }
-
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                //.UseSerilog()
-                .ConfigureAppConfiguration((hostingContext, configurationBuilder) =>
-                {
-                    var env = hostingContext.HostingEnvironment;
-                    configurationBuilder.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
-                    configurationBuilder.AddEnvironmentVariables();
-                });
     }
 }
