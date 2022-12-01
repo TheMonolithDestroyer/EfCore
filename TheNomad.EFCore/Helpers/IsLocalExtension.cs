@@ -13,11 +13,11 @@ namespace TheNomad.EFCore.Api.Helpers
             var connection = req.HttpContext.Connection;
             if (connection.RemoteIpAddress.IsSet())
             {
-                //We have a remote address set up
+                // We have a remote address set up
                 return connection.LocalIpAddress.IsSet()
-                    //Is local is same as remote, then we are local
+                    // Is local is same as remote, then we are local
                     ? connection.RemoteIpAddress.Equals(connection.LocalIpAddress)
-                    //else we are remote if the remote IP address is not a loopback address
+                    // else we are remote if the remote IP address is not a loopback address
                     : IPAddress.IsLoopback(connection.RemoteIpAddress);
             }
 
@@ -26,7 +26,8 @@ namespace TheNomad.EFCore.Api.Helpers
 
         public static void ThrowErrorIfNotLocal(this HttpRequest req)
         {
-            if (!req.IsLocal())
+            var isLocal = req.IsLocal();
+            if (!isLocal)
                 throw new InvalidOperationException("You can only call this command if you are running locally");
         }
 

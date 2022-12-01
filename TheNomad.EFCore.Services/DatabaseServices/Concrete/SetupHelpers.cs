@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Infrastructure;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 using Npgsql;
 using System;
-using System.IO;
 using System.Linq;
 using TheNomad.EFCore.Data;
 
@@ -12,21 +12,11 @@ namespace TheNomad.EFCore.Services.DatabaseServices.Concrete
 
     public static class SetupHelpers
     {
-        private const string SeedDataSearchName = "EFCoreDataSeeding.json";
-        public const string SeedFileSubDirectory = "SeedData";
-
-        /// <summary>
-        /// This forms the connection string with a database name that includes the git branch name
-        /// </summary>
-        /// <param name="connectionString"></param>
-        /// <param name="gitBranchName"></param>
-        /// <returns>returns a connection string with the database name changed by appending that gitBranchName</returns>
         public static string FormDatabaseConnection(this string connectionString)
         {
             if (connectionString == null)
                 throw new InvalidOperationException("You must set the default connection string in the appsetting file.");
             
-            //In development mode, so we make a new database for each branch, as they could be different
             var builder = new NpgsqlConnectionStringBuilder(connectionString);
 
             return builder.ToString();
@@ -34,7 +24,7 @@ namespace TheNomad.EFCore.Services.DatabaseServices.Concrete
 
         public static void DevelopmentEnsureCreated(this AppDbContext db)
         {
-            db.Database.EnsureCreated();
+            db.Database.Migrate();
         }
 
         public static int SeedDatabase(this AppDbContext context)
@@ -46,13 +36,14 @@ namespace TheNomad.EFCore.Services.DatabaseServices.Concrete
             var numBooks = context.Books.Count();
             if (numBooks == 0)
             {
-                //the database is emply so we fill it from a json file
-                var books = BookJsonLoader.LoadBooks(SeedDataSearchName).ToList();
+                var books = BookJsonLoader.LoadBooks("EFCoreDataSeeding.json").ToList();
+                
                 context.Books.AddRange(books);
                 context.SaveChanges();
-                //We add this separately so that it has the highest Id. That will make it appear at the top of the default list
+                
                 context.Books.Add(SpecialBook.CreateSpecialBook());
                 context.SaveChanges();
+                
                 numBooks = books.Count + 1;
             }
 

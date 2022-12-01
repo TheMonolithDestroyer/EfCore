@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace TheNomad.EFCore.Api
 {
@@ -7,14 +10,26 @@ namespace TheNomad.EFCore.Api
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateWebHostBuilder(args).Build();
+
+            //Log.Logger = new LoggerConfiguration()
+            //                .ReadFrom.Configuration(Configuration)
+            //                .Enrich.FromLogContext()
+            //                .CreateLogger();
+
+            host.Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                //.UseSerilog()
+                .ConfigureAppConfiguration((hostingContext, configurationBuilder) =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    var env = hostingContext.HostingEnvironment;
+                    configurationBuilder.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
+                    configurationBuilder.AddEnvironmentVariables();
                 });
     }
 }
