@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Globalization;
 using TheNomad.EFCore.Api.Helpers;
 using TheNomad.EFCore.Data;
+using TheNomad.EFCore.Data.Entities;
 using TheNomad.EFCore.Services.AdminServices;
 using TheNomad.EFCore.Services.AdminServices.Concrete;
 using TheNomad.EFCore.Services.DatabaseServices.Concrete;
@@ -72,6 +74,61 @@ namespace TheNomad.EFCore.Api.Controllers
             var author = service.UpdateDisconectedAuthorV2();
 
             return Ok(author);
+        }
+
+        [HttpPost]
+        public IActionResult AddPromotionToBook(PriceOffer priceOffer)
+        {
+            Request.ThrowErrorIfNotLocal();
+
+            var service = new ChangePriceOfferService(_context);
+            var book = service.ChangePriceOffer(priceOffer);
+
+            return Ok(book);
+        }
+
+        [HttpGet]
+        public IActionResult GetPromotion(int id)
+        {
+            Request.ThrowErrorIfNotLocal();
+
+            var service = new ChangePriceOfferService(_context);
+            var priceOffer = service.GetOriginal(id);
+            
+            return Ok(priceOffer);
+        }
+
+        [HttpPost]
+        public IActionResult ChangePromotion(PriceOffer dto)
+        {
+            Request.ThrowErrorIfNotLocal();
+
+            var service = new ChangePriceOfferService(_context);
+            var book = service.UpdateBook(dto);
+            
+            return Ok(book);
+        }
+
+        [HttpGet]
+        public IActionResult GetBookReview(int id)
+        {
+            Request.ThrowErrorIfNotLocal();
+
+            var service = new AddReviewService(_context);
+            var review = service.GetBlankReview(id);
+            
+            return Ok(review);
+        }
+
+        [HttpPost]
+        public IActionResult AddBookReview(Review dto)
+        {
+            Request.ThrowErrorIfNotLocal();
+
+            var service = new AddReviewService(_context);
+            var book = service.AddReviewToBook(dto);
+
+            return Ok(book);
         }
 
         [HttpGet]
