@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TheNomad.BizLogic\TheNomad.BizLogic.csproj" />
     <ProjectReference Include="..\TheNomad.EFCore.Data\TheNomad.EFCore.Data.csproj" />
     <ProjectReference Include="..\TheNomad.EFCore.Utils\TheNomad.EFCore.Utils.csproj" />
   </ItemGroup>

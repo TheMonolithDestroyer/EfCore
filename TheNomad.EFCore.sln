@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheNomad.EFCore.Services", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheNomad.EFCore.Utils", "TheNomad.EFCore.Utils\TheNomad.EFCore.Utils.csproj", "{17567928-283D-445E-8D2A-B8405AF87C6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheNomad.BizLogic", "TheNomad.BizLogic\TheNomad.BizLogic.csproj", "{12F8A80C-A06A-487D-906B-9BECBD68ED46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheNomad.BizDbAccess", "TheNomad.BizDbAccess\TheNomad.BizDbAccess.csproj", "{B7A31D89-9ED6-42F6-A004-EFFD687B726B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{17567928-283D-445E-8D2A-B8405AF87C6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17567928-283D-445E-8D2A-B8405AF87C6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17567928-283D-445E-8D2A-B8405AF87C6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12F8A80C-A06A-487D-906B-9BECBD68ED46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12F8A80C-A06A-487D-906B-9BECBD68ED46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12F8A80C-A06A-487D-906B-9BECBD68ED46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12F8A80C-A06A-487D-906B-9BECBD68ED46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7A31D89-9ED6-42F6-A004-EFFD687B726B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7A31D89-9ED6-42F6-A004-EFFD687B726B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7A31D89-9ED6-42F6-A004-EFFD687B726B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7A31D89-9ED6-42F6-A004-EFFD687B726B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

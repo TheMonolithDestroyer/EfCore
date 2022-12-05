@@ -32,7 +32,11 @@ namespace TheNomad.EFCore.Services.AdminServices.Concrete
         public Author UpdateDisconectedAuthor(ChangeAuthorNameDto dto)
         {
 
-            var author = new Author { AuthorId = dto.AuthorId, Name = dto.Name };
+            var author = new Author 
+            { 
+                AuthorId = dto.AuthorId, 
+                Name = dto.Name 
+            };
             
             _context.Authors.Update(author);
             _context.SaveChanges();

@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace TheNomad.EFCore.Data.Entities
 {
-    public class Book                                   //#A
+    public class Book //#A
     {
         [Key]
         public int BookId { get; set; } //#B
@@ -17,12 +16,9 @@ namespace TheNomad.EFCore.Data.Entities
         public string ImageUrl { get; set; }
         public bool SoftDeleted { get; set; }
 
-        //-----------------------------------------------
-        //relationships
-
-        public PriceOffer Promotion { get; set; }        //#C
+        public PriceOffer Promotion { get; set; } //#C
         public ICollection<Review> Reviews { get; set; } //#D
-        public ICollection<BookAuthor> AuthorsLink { get; set; }                    //#E
+        public ICollection<BookAuthor> AuthorsLink { get; set; } //#E
     }
     /****************************************************#
     #A The Book class contains the main book information
