@@ -84,7 +84,7 @@ namespace TheNomad.EFCore.Services.CheckoutServices.Concrete
             }
 
             //Has cookie, so decode it
-            var parts = cookieContent.Split(',');
+            var parts = cookieContent.Split('=');
             UserId = Guid.Parse(parts[0]);
             for (int i = 0; i < (parts.Length - 1) / 2; i++)
             {

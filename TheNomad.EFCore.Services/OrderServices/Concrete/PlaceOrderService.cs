@@ -27,7 +27,9 @@ namespace TheNomad.EFCore.Services.OrderServices.Concrete
             AppDbContext context)             //#D
         {
             _checkoutCookie = new CheckoutCookie(cookiesIn, cookiesOut); //#E
-            _runner = new RunnerWriteDb<PlaceOrderInDto, Order>(new PlaceOrderAction(new PlaceOrderDbAccess(context)), context); //#F
+
+            var placeOrderAction = new PlaceOrderAction(new PlaceOrderDbAccess(context));
+            _runner = new RunnerWriteDb<PlaceOrderInDto, Order>(placeOrderAction, context); //#F
         }
 
         /// <summary>
@@ -38,15 +40,14 @@ namespace TheNomad.EFCore.Services.OrderServices.Concrete
         {
             var checkoutService = new CheckoutCookieService(_checkoutCookie.GetValue()); //#H
 
-            var order = _runner.RunAction(       //#I
-                new PlaceOrderInDto(acceptTAndCs,//#I
-                checkoutService.UserId,          //#I
-                checkoutService.LineItems));     //#I
+            var order = _runner.RunAction(new PlaceOrderInDto(acceptTAndCs, checkoutService.UserId, checkoutService.LineItems)); //#I
 
-            if (_runner.HasErrors) return 0; //#J
+            if (_runner.HasErrors) 
+                return 0; //#J
 
             //successful so clear the cookie line items
             checkoutService.ClearAllLineItems();   //#K
+            
             _checkoutCookie.AddOrUpdateCookie(checkoutService.EncodeForCookie());//#K
 
             return order.OrderId;//#L

@@ -25,7 +25,7 @@ namespace TheNomad.EFCore.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-            services.AddMvc();
+            services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddHttpContextAccessor();
             services.AddSingleton(new AppInformation());
 
@@ -36,15 +36,15 @@ namespace TheNomad.EFCore.Api
             }
             services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connection, b => b.MigrationsAssembly("TheNomad.EFCore.Data")));
 
-            services.AddSwaggerGen(options =>
-            {
-                options.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Title = "ClientIdentity API v1",
-                    Version = "v1",
-                    Description = "A v1 WebAPI for managing ClientIdentity services"
-                });
-            });
+            //services.AddSwaggerGen(options =>
+            //{
+            //    options.SwaggerDoc("v1", new OpenApiInfo
+            //    {
+            //        Title = "ClientIdentity API v1",
+            //        Version = "v1",
+            //        Description = "A v1 WebAPI for managing ClientIdentity services"
+            //    });
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,29 +55,37 @@ namespace TheNomad.EFCore.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseSwagger(options =>
+            //app.UseSwagger(options =>
+            //{
+            //    options.PreSerializeFilters.Add((openApiDocument, httpRequest) =>
+            //    {
+            //        openApiDocument.Servers = new List<OpenApiServer>();
+            //        var apiServer = new OpenApiServer { Url = "http://localhost:22387/" };
+            //        openApiDocument.Servers.Add(apiServer);
+            //    });
+            //});
+
+            //app.UseSwaggerUI(c => 
+            //{ 
+            //    c.SwaggerEndpoint("../swagger/v1/swagger.json", "V1"); 
+            //});
+
+            //app.UseRouting();
+
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllers();
+            //});
+
+            app.UseStaticFiles();
+
+            app.UseMvc(routes =>
             {
-                options.PreSerializeFilters.Add((openApiDocument, httpRequest) =>
-                {
-                    openApiDocument.Servers = new List<OpenApiServer>();
-                    var apiServer = new OpenApiServer { Url = "http://localhost:22387/" };
-                    openApiDocument.Servers.Add(apiServer);
-                });
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            app.UseSwaggerUI(c => 
-            { 
-                c.SwaggerEndpoint("../swagger/v1/swagger.json", "V1"); 
-            });
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
         }
     }
 }

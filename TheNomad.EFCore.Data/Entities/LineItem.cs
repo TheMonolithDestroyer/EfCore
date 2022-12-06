@@ -25,11 +25,11 @@ namespace TheNomad.EFCore.Data.Entities
         {
             var currContext = validationContext.GetService(typeof(DbContext)); //#D
 
-            if (ChosenBook.Price < 0)                      //#E
+            if (ChosenBook.Price < 0) //#E
                 yield return new ValidationResult($"Sorry, the book '{ChosenBook.Title}' is not for sale."); //#E
 
             if (NumBooks > 100)
-                yield return new ValidationResult("If you want to order a 100 or more books please phone us on 01234-5678-90", new[] { nameof(NumBooks) });  //#F
+                yield return new ValidationResult("If you want to order a 100 or more books please phone us on 01234-5678-90", new[] { nameof(NumBooks) }); //#F
         }
 
         /**********************************************************

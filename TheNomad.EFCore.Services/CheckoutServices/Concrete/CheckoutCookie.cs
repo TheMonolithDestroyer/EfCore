@@ -8,7 +8,7 @@ namespace TheNomad.EFCore.Services.CheckoutServices.Concrete
 {
     public class CheckoutCookie : CookieTemplate
     {
-        public const string CheckoutCookieName = "TheNomad.EFCore-Checkout";
+        public const string CheckoutCookieName = "EFCore";
 
         public CheckoutCookie(IRequestCookieCollection cookiesIn, IResponseCookies cookiesOut = null)
             : base(CheckoutCookieName, cookiesIn, cookiesOut)
