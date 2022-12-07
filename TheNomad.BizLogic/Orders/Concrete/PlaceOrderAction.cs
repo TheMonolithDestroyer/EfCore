@@ -10,7 +10,7 @@ namespace TheNomad.BizLogic.Orders.Concrete
 {
     public class PlaceOrderAction : 
         BizActionErrors, //#A
-        IBizAction<PlaceOrderInDto, Order> //#B
+        IPlaceOrderAction //#B
     {
         private readonly IPlaceOrderDbAccess _dbAccess;
 
@@ -69,7 +69,6 @@ namespace TheNomad.BizLogic.Orders.Concrete
                 }
                 else
                 {
-                    //Valid, so add to the order
                     result.Add(new LineItem         //#O
                     {                               //#O
                         BookPrice = bookPrice,      //#O

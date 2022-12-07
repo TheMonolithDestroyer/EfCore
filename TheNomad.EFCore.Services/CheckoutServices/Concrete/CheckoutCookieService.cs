@@ -11,14 +11,7 @@ namespace TheNomad.EFCore.Services.CheckoutServices.Concrete
     {
         private List<OrderLineItem> _lineItems;
 
-        /// <summary>
-        /// Because we don't get user to log in we assign them a uniquie GUID and store it in the cookie
-        /// </summary>
         public Guid UserId { get; private set; }
-
-        /// <summary>
-        /// This returns the line items in the order they were places
-        /// </summary>
         public ImmutableList<OrderLineItem> LineItems => _lineItems.ToImmutableList();
 
         public CheckoutCookieService(string cookieContent)

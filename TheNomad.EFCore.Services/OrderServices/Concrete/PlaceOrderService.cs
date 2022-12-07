@@ -28,14 +28,10 @@ namespace TheNomad.EFCore.Services.OrderServices.Concrete
         {
             _checkoutCookie = new CheckoutCookie(cookiesIn, cookiesOut); //#E
 
-            var placeOrderAction = new PlaceOrderAction(new PlaceOrderDbAccess(context));
-            _runner = new RunnerWriteDb<PlaceOrderInDto, Order>(placeOrderAction, context); //#F
+            var action = new PlaceOrderAction(new PlaceOrderDbAccess(context));
+            _runner = new RunnerWriteDb<PlaceOrderInDto, Order>(action, context); //#F
         }
 
-        /// <summary>
-        /// This creates the order and, if successful clears the cookie
-        /// </summary>
-        /// <returns>Returns the OrderId, or zero if errors</returns>
         public int PlaceOrder(bool acceptTAndCs) //#G
         {
             var checkoutService = new CheckoutCookieService(_checkoutCookie.GetValue()); //#H

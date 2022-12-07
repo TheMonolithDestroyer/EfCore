@@ -35,5 +35,17 @@ namespace TheNomad.EFCore.Api.Controllers
             var listService = new CheckoutListService(_context, HttpContext.Request.Cookies);
             return BadRequest(listService.GetCheckoutList());
         }
+
+        public IActionResult PlaceOrderTransact(bool acceptTAndCs)
+        {
+            var service = new PlaceOrderServiceTransact(HttpContext.Request.Cookies, HttpContext.Response.Cookies, _context);
+            var orderId = service.PlaceOrder(acceptTAndCs);
+
+            if (!service.Errors.Any())
+                return Ok(new { orderId });
+
+            var listService = new CheckoutListService(_context, HttpContext.Request.Cookies);
+            return BadRequest(listService.GetCheckoutList());
+        }
     }
 }
