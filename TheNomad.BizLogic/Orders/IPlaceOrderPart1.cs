@@ -5,7 +5,7 @@ using TheNomad.BizLogic.GenericInterfaces;
 
 namespace TheNomad.BizLogic.Orders
 {
-    public interface IPlaceOrderPart1 : IBizAction<PlaceOrderInDto, Part1ToPart2Dto> { }
-    {
+    public interface IPlaceOrderPart1 : IBizAction<PlaceOrderInDto, Part1ToPart2Dto> 
+    { 
     }
 }

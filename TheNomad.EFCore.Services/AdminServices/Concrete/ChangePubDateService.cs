@@ -9,7 +9,7 @@ using TheNomad.EFCore.Data.Entities;
 
 namespace TheNomad.EFCore.Services.AdminServices.Concrete
 {
-    public class ChangePubDateService
+    public class ChangePubDateService : IChangePubDateService
     {
         private readonly AppDbContext _context;
 

@@ -142,5 +142,12 @@ namespace TheNomad.EFCore.Api.Controllers
 
             return Ok($"BookUpdated, Successfully reset the database and added { numerOfBooks } books.");
         }
+
+        [HttpGet]
+        public IActionResult ChangePublicationDate(int id, [FromServices] IChangePubDateService service)
+        {
+            var dto = service.GetBook(id);
+            return Ok(dto);
+        }
     }
 }
