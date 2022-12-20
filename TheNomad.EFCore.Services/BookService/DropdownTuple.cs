@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TheNomad.EFCore.Services
+namespace TheNomad.EFCore.Services.BookService
 {
     public class DropdownTuple
     {

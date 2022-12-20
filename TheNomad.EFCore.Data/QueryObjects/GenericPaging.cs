@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TheNomad.EFCore.Data.QueryObjects
 {
-    public static class GenericPage
+    public static class GenericPaging
     {
         public static IQueryable<T> Page<T>(this IQueryable<T> query, int pageNumZeroStart, int pageSize)
         {

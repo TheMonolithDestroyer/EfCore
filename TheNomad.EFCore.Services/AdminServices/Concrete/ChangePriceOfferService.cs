@@ -8,7 +8,7 @@ using TheNomad.EFCore.Data.Entities;
 
 namespace TheNomad.EFCore.Services.AdminServices.Concrete
 {
-    public class ChangePriceOfferService
+    public class ChangePriceOfferService : IChangePriceOfferService
     {
         private readonly AppDbContext _context;
         public Book OrgBook { get; private set; }

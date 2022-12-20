@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using TheNomad.EFCore.Data;
 using TheNomad.EFCore.Data.QueryObjects;
-using TheNomad.EFCore.Dto.BookDtos;
-using TheNomad.EFCore.Services.QueryObjects;
+using TheNomad.EFCore.Services.BookService.QueryObjects;
 
-namespace TheNomad.EFCore.Services.Concrete
+namespace TheNomad.EFCore.Services.BookService.Concrete
 {
-    public class ListBooksService
+    public class ListBookService
     {
         private readonly AppDbContext _context;
-        public ListBooksService(AppDbContext context)
+
+        public ListBookService(AppDbContext context)
         {
             _context = context;
         }
@@ -22,7 +22,7 @@ namespace TheNomad.EFCore.Services.Concrete
         {
             var booksQuery = _context.Books //#A
                 .AsNoTracking() //#B
-                .MapBookDto() //#C
+                .MapBookToDto() //#C
                 .OrderBooksBy(options.OrderByOptions) //#D
                 .FilterBooksBy(options.FilterBy, options.FilterValue); //#E
 
@@ -39,6 +39,6 @@ namespace TheNomad.EFCore.Services.Concrete
         #E Then it adds the commands to filter the data
         #F This stage sets up the number of pages and also makes sure PageNum is in the right range
         #G Finally it applies the paging commands
-            * *****************************************************/
+        * *****************************************************/
     }
 }

@@ -14,4 +14,8 @@
     <ProjectReference Include="..\TheNomad.EFCore.Utils\TheNomad.EFCore.Utils.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="QueryObjects\" />
+  </ItemGroup>
+
 </Project>

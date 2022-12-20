@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheNomad.EFCore.Data.Entities;
-using TheNomad.EFCore.Dto.BookDtos;
 using TheNomad.EFCore.Utils.Enums;
 
-namespace TheNomad.EFCore.Services.QueryObjects
+namespace TheNomad.EFCore.Services.BookService.QueryObjects
 {
     public static class BookListDtoSort
     {
@@ -18,7 +16,7 @@ namespace TheNomad.EFCore.Services.QueryObjects
                 OrderByOptions.ByPublicationDate => books.OrderByDescending(_ => _.PublishedOn),
                 OrderByOptions.ByPriceLowestFirst => books.OrderBy(_ => _.ActualPrice),
                 OrderByOptions.ByPriceHigestFirst => books.OrderByDescending(_ => _.ActualPrice),
-                _ => throw new ArgumentOutOfRangeException(nameof(orderByOptions), orderByOptions, null) 
+                _ => throw new ArgumentOutOfRangeException(nameof(orderByOptions), orderByOptions, null)
             };
     }
 }

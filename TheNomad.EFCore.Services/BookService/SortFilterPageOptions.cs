@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using TheNomad.EFCore.Utils.Enums;
 
-namespace TheNomad.EFCore.Services
+namespace TheNomad.EFCore.Services.BookService
 {
     public class SortFilterPageOptions
     {

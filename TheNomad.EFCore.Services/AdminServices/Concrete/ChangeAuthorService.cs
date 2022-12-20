@@ -9,7 +9,7 @@ using TheNomad.EFCore.Data.Entities;
 
 namespace TheNomad.EFCore.Services.AdminServices.Concrete
 {
-    public class ChangeAuthorService
+    public class ChangeAuthorService : IChangeAuthorService
     {
         private readonly AppDbContext _context;
 

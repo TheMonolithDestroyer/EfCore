@@ -8,11 +8,10 @@ using TheNomad.EFCore.Data.Entities;
 
 namespace TheNomad.EFCore.Services.AdminServices.Concrete
 {
-    public class AddReviewService
+    public class AddReviewService : IAddReviewService
     {
         private readonly AppDbContext _context;
         public string BookTitle { get; private set; }
-
 
         public AddReviewService(AppDbContext context)
         {

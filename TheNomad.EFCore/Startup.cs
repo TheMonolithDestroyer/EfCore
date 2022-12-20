@@ -39,6 +39,9 @@ namespace TheNomad.EFCore.Api
             services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connection, b => b.MigrationsAssembly("TheNomad.EFCore.Data")));
 
             services.AddTransient<IChangePubDateService, ChangePubDateService>();
+            services.AddTransient<IChangePriceOfferService, ChangePriceOfferService>();
+            services.AddTransient<IChangeAuthorService, ChangeAuthorService>();
+            services.AddTransient<IAddReviewService, AddReviewService>();
 
             services.AddSwaggerGen(options =>
             {

@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using TheNomad.EFCore.Data;
-using TheNomad.EFCore.Services.QueryObjects;
+using TheNomad.EFCore.Services.BookService.QueryObjects;
 using TheNomad.EFCore.Utils.Enums;
 
-namespace TheNomad.EFCore.Services.Concrete
+namespace TheNomad.EFCore.Services.BookService.Concrete
 {
     public class BookFilterDropdownService
     {
@@ -28,7 +27,7 @@ namespace TheNomad.EFCore.Services.Concrete
                 case BooksFilterBy.ByPublicationYear:
                     var comingSoon = _db.Books.Any(x => x.PublishedOn > DateTime.UtcNow);  //#A
                     var nextYear = DateTime.UtcNow.AddYears(1).Year;//#B
-                    
+
                     var result = _db.Books                          //#C
                         .Select(x => x.PublishedOn.Year)            //#C
                         .Distinct()                                 //#C
@@ -39,7 +38,7 @@ namespace TheNomad.EFCore.Services.Concrete
                             Value = x.ToString(),                   //#D
                             Text = x.ToString()                     //#D
                         }).ToList();                                //#D
-                    
+
                     if (comingSoon)                                 //#E
                         result.Insert(0, new DropdownTuple          //#E
                         {

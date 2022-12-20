@@ -39,6 +39,24 @@ namespace TheNomad.EFCore.Data
          #F I return the empty set of errors, which tells the caller that everything is OK
          * *****************************************************************/
 
+        public static async Task<ImmutableList<ValidationResult>> SaveChangesWithValidationAsync(this DbContext context)
+        {
+            var result = context.ExecuteValidation();
+            if (result.Any())
+                return result;
+
+            context.ChangeTracker.AutoDetectChangesEnabled = false;
+            try
+            {
+                await context.SaveChangesAsync().ConfigureAwait(false);
+            }
+            finally
+            {
+                context.ChangeTracker.AutoDetectChangesEnabled = true;
+            }
+            return result;
+        }
+
         private static ImmutableList<ValidationResult> ExecuteValidation(this DbContext context)
         {
             var result = new List<ValidationResult>();

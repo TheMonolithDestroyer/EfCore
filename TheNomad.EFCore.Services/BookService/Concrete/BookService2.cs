@@ -1,20 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using TheNomad.EFCore.Data;
 using TheNomad.EFCore.Data.Entities;
-using TheNomad.EFCore.Dto.BookDtos;
-using TheNomad.EFCore.Services.Concrete;
 
-namespace TheNomad.EFCore.Services.QueryObjects
+namespace TheNomad.EFCore.Services.BookService.Concrete
 {
-    public class BookService
+    public class BookService2
     {
         private readonly AppDbContext _context;
-        public BookService(AppDbContext context)
+        public BookService2(AppDbContext context)
         {
             _context = context;
         }
@@ -50,7 +46,7 @@ namespace TheNomad.EFCore.Services.QueryObjects
                 StarRatings = starRatings
             };
         }
-        
+
         public object SelectiveGetFirst()
         {
             var result = _context.Books
@@ -61,7 +57,7 @@ namespace TheNomad.EFCore.Services.QueryObjects
                     p.Price,
                     NumberOfReviews = p.Reviews.Count
                 }).First();
-            
+
             return result;
         }
 
