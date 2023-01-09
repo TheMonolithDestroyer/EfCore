@@ -17,6 +17,6 @@ namespace TheNomad.EFCore.Utils.Enums
         [Display(Name = "Price ↓")]
         ByPriceLowestFirst,
         [Display(Name = "Price ↑")]
-        ByPriceHigestFirst
+        ByPriceHighestFirst
     }
 }
