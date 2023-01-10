@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using TheNomad.EFCore.Data.EfCode;
 using TheNomad.EFCore.Data.Entities;
 
@@ -94,6 +94,7 @@ namespace TheNomad.EFCore.Services.BookService.Concrete
                     Author = oneBook.AuthorsLink.First().Author
                 }
             };
+
             _context.Add(book);
             _context.SaveChanges();
         }
@@ -111,7 +112,11 @@ namespace TheNomad.EFCore.Services.BookService.Concrete
             var author = new Author { Name = "Test Author" };
             book.AuthorsLink = new List<BookAuthor>
             {
-                new BookAuthor {Book = book, Author = author},
+                new BookAuthor
+                {
+                    Book = book,
+                    Author = author
+                },
             };
 
             return book;

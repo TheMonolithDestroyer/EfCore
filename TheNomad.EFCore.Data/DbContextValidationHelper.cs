@@ -54,6 +54,7 @@ namespace TheNomad.EFCore.Data
             {
                 context.ChangeTracker.AutoDetectChangesEnabled = true;
             }
+
             return result;
         }
 
