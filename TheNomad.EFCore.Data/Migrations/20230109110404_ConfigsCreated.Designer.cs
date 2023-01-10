@@ -10,8 +10,8 @@ using TheNomad.EFCore.Data.EfCode;
 namespace TheNomad.EFCore.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221206061509_Init2")]
-    partial class Init2
+    [Migration("20230109110404_ConfigsCreated")]
+    partial class ConfigsCreated
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -47,24 +47,31 @@ namespace TheNomad.EFCore.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("ImageUrl")
-                        .HasColumnType("text");
+                        .HasMaxLength(512)
+                        .IsUnicode(false)
+                        .HasColumnType("character varying(512)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("numeric");
+                        .HasColumnType("numeric(9,2)");
 
                     b.Property<DateTime>("PublishedOn")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("date");
 
                     b.Property<string>("Publisher")
-                        .HasColumnType("text");
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)");
 
                     b.Property<bool>("SoftDeleted")
                         .HasColumnType("boolean");
 
                     b.Property<string>("Title")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
 
                     b.HasKey("BookId");
+
+                    b.HasIndex("PublishedOn");
 
                     b.ToTable("Books");
                 });
@@ -147,7 +154,7 @@ namespace TheNomad.EFCore.Data.Migrations
                         .HasColumnType("integer");
 
                     b.Property<decimal>("NewPrice")
-                        .HasColumnType("numeric");
+                        .HasColumnType("numeric(9,2)");
 
                     b.Property<string>("PromotionalText")
                         .HasColumnType("text");

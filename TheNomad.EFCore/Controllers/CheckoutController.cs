@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using TheNomad.EFCore.Data;
+using TheNomad.EFCore.Data.EfCode;
 using TheNomad.EFCore.Services.CheckoutServices.Concrete;
 using TheNomad.EFCore.Services.OrderServices.Concrete;
 

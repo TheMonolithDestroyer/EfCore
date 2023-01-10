@@ -6,11 +6,11 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using TheNomad.EFCore.Data;
 using TheNomad.EFCore.Api.Services;
 using TheNomad.EFCore.Services.DatabaseServices.Concrete;
 using TheNomad.EFCore.Services.AdminServices;
 using TheNomad.EFCore.Services.AdminServices.Concrete;
+using TheNomad.EFCore.Data.EfCode;
 
 namespace TheNomad.EFCore.Api
 {

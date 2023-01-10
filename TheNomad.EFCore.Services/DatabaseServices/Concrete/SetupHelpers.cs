@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Npgsql;
 using System;
 using System.Linq;
-using TheNomad.EFCore.Data;
+using TheNomad.EFCore.Data.EfCode;
 
 namespace TheNomad.EFCore.Services.DatabaseServices.Concrete
 {

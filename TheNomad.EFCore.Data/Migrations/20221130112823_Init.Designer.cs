@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using TheNomad.EFCore.Data;
+using TheNomad.EFCore.Data.EfCode;
 
 namespace TheNomad.EFCore.Data.Migrations
 {

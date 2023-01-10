@@ -1,9 +1,16 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace TheNomad.EFCore.Data.Entities
 {
     public class BookAuthor                    //#G
     {
+        [Key]
+        [Column(Order = 0)]
         public int BookId { get; set; }        //#H
+        [Key]
+        [Column(Order = 1)]
         public int AuthorId { get; set; }      //#H
         public byte Order { get; set; }        //#I
         public Book Book { get; set; }        //#J

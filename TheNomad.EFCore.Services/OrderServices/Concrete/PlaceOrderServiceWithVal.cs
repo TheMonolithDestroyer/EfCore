@@ -10,7 +10,7 @@ using TheNomad.BizLogic.Orders;
 using TheNomad.EFCore.Data.Entities;
 using TheNomad.EFCore.Services.BizRunners;
 using TheNomad.EFCore.Services.CheckoutServices.Concrete;
-using TheNomad.EFCore.Data;
+using TheNomad.EFCore.Data.EfCode;
 
 namespace TheNomad.EFCore.Services.OrderServices.Concrete
 {

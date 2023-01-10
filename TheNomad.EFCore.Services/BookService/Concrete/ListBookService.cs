@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheNomad.EFCore.Data;
+using TheNomad.EFCore.Data.EfCode;
 using TheNomad.EFCore.Data.QueryObjects;
 using TheNomad.EFCore.Services.BookService.QueryObjects;
 

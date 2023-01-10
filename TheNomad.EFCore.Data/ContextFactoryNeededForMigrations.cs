@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.Design;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TheNomad.EFCore.Data.EfCode;
 
 namespace TheNomad.EFCore.Data
 {

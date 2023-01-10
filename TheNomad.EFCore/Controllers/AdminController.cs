@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using System.Globalization;
 using TheNomad.EFCore.Api.Helpers;
-using TheNomad.EFCore.Data;
+using TheNomad.EFCore.Data.EfCode;
 using TheNomad.EFCore.Data.Entities;
 using TheNomad.EFCore.Services.AdminServices;
 using TheNomad.EFCore.Services.AdminServices.Concrete;

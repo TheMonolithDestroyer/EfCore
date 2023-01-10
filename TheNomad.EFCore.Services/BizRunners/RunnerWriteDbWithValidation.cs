@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using TheNomad.BizLogic.GenericInterfaces;
 using TheNomad.EFCore.Data;
+using TheNomad.EFCore.Data.EfCode;
 
 namespace TheNomad.EFCore.Services.BizRunners
 {

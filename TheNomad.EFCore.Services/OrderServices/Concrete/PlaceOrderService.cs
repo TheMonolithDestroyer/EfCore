@@ -7,7 +7,7 @@ using System.Text;
 using TheNomad.BizDbAccess.Orders;
 using TheNomad.BizLogic.Orders;
 using TheNomad.BizLogic.Orders.Concrete;
-using TheNomad.EFCore.Data;
+using TheNomad.EFCore.Data.EfCode;
 using TheNomad.EFCore.Data.Entities;
 using TheNomad.EFCore.Services.BizRunners;
 using TheNomad.EFCore.Services.CheckoutServices.Concrete;
