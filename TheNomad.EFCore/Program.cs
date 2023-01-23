@@ -11,7 +11,7 @@ namespace TheNomad.EFCore.Api
     public class Program
     {
         public static IConfiguration Configuration { get; } = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory()) 
+            .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
             .AddJsonFile($"appsettings.Development.json", optional: true, reloadOnChange: true)
             .AddEnvironmentVariables()
@@ -23,13 +23,12 @@ namespace TheNomad.EFCore.Api
                 .WriteTo.Console()
                 .CreateLogger();
 
-            using var app =
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webHostBuilder
-                    => webHostBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-                            _ = config.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
-                                .AddJsonFile("appsettings.json", false, true))
-                        .UseStartup<Startup>())
+            using var app = Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webHostBuilder =>
+                    webHostBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                        _ = config.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
+                            .AddJsonFile("appsettings.json", false, true))
+                    .UseStartup<Startup>())
                 .UseSerilog(
                     (hostingContext, loggerConfig) =>
                         loggerConfig
