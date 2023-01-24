@@ -33,4 +33,6 @@ namespace TheNomad.EFCore.Data.Entities
     #D There can be zero to many Reviews of the book
     #E This provides a link to the Many-to-Many linking table that links to the Authors of this book
      * **************************************************/
+
+    // From the software design point of view we need review class be defined as navigational property here in order to to calculate the average review score
 }

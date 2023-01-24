@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheNomad.BizLogic", "TheNom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheNomad.BizDbAccess", "TheNomad.BizDbAccess\TheNomad.BizDbAccess.csproj", "{B7A31D89-9ED6-42F6-A004-EFFD687B726B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{771B92C2-78AA-4144-8AC3-7695C30B184E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{B7A31D89-9ED6-42F6-A004-EFFD687B726B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7A31D89-9ED6-42F6-A004-EFFD687B726B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7A31D89-9ED6-42F6-A004-EFFD687B726B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{771B92C2-78AA-4144-8AC3-7695C30B184E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{771B92C2-78AA-4144-8AC3-7695C30B184E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{771B92C2-78AA-4144-8AC3-7695C30B184E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{771B92C2-78AA-4144-8AC3-7695C30B184E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -20,4 +20,6 @@ namespace TheNomad.EFCore.Data.Entities
     #L This holds customer reviews with their rating
     #M This foreign key holds the key of the book this review belongs to
      * *****************************************************/
+
+    // From the software design point of view we dont need backtracking navigational property "book", thus i did not defined it here.
 }
