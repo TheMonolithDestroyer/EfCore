@@ -9,7 +9,7 @@ namespace Tests.Chapter07.EfClasses
         public int TicketId { get; set; }
         public Ticket Ticket { get; set; }
 
-        public OptionalTrack OptionalTrack { get; set; }
-        public RequiredTrack RequiredTrack { get; set; }
+        public OptionalTrack Optional { get; set; }
+        public RequiredTrack Required { get; set; }
     }
 }

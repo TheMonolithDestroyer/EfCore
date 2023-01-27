@@ -6,6 +6,6 @@ namespace Tests.Chapter07.EfClasses
     {
         public int RequiredTrackId { get; set; }
         public TrackNamesEnum Track { get; set; }
-        public Ticket Ticket { get; set; }
+        public Attendee Attend { get; set; }
     }
 }
